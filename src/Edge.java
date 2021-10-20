@@ -3,6 +3,12 @@ public class Edge {
     private Vertex destVertex;
     private Integer km;
 
+    public Edge (Vertex src, Vertex dest, Integer km){
+        this.srcVertex = src;
+        this.destVertex = dest;
+        this.km = km;
+    }
+
     public Vertex getSrcVertex(){
         return srcVertex;
     }
@@ -19,6 +25,11 @@ public class Edge {
         this.destVertex = destVertex;
     }
 
-    
+    public Integer getKm(){
+        return km;
+    }
 
+    public void setKm(Integer km){
+        this.km = km;
+    }
 }
