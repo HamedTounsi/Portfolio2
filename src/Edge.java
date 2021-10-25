@@ -7,29 +7,18 @@ public class Edge {
         this.srcVertex = src;
         this.destVertex = dest;
         this.km = km;
+        src.addOutEdge(this);
     }
 
-    public Vertex getSrcVertex(){
-        return srcVertex;
-    }
+    public void setSrcVertex(Vertex srcVertex){this.srcVertex = srcVertex;}
 
-    public void setSrcVertex(Vertex srcVertex){
-        this.srcVertex = srcVertex;
-    }
+    public Vertex getSrcVertex(){return srcVertex;}
 
-    public Vertex getDestVertex(){
-        return destVertex;
-    }
+    public void setDestVertex(Vertex destVertex){this.destVertex = destVertex;}
 
-    public void setDestVertex(Vertex destVertex){
-        this.destVertex = destVertex;
-    }
+    public Vertex getDestVertex(){return destVertex;}
 
-    public Integer getKm(){
-        return km;
-    }
+    public void setKm(Integer km){this.km = km;}
 
-    public void setKm(Integer km){
-        this.km = km;
-    }
+    public Integer getKm(){return km;}
 }

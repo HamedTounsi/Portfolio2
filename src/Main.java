@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Graph thisGraph= new Graph(7);
+        /*Graph thisGraph= new Graph(7);
         thisGraph.addEdge(0,1,1);
         thisGraph.addEdge(0,2,5);
         thisGraph.addEdge(0,4,3);
@@ -16,6 +16,6 @@ public class Main {
         thisGraph.addEdge(4,6,4);
         thisGraph.addEdge(5,6,1);
         thisGraph.printGraph();
-        thisGraph.MSTPrims();
+        thisGraph.MSTPrims();*/
     }
 }

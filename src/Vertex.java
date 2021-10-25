@@ -1,12 +1,54 @@
+import java.util.ArrayList;
+
 public class Vertex implements Comparable<Vertex>{
 
     private String name;
+    private ArrayList<Edge> outEdge;
+    Vertex predecessor = null;
+    Boolean visited = false;
+    Integer distance = Integer.MAX_VALUE;
 
+    //Constructor
+    public Vertex(String v){
+        this.name = v;
+        this.outEdge = new ArrayList();  //An ArrayList which holds outEdges to the vertex
+    }
 
+    public void setName(String v){this.name = v;}
 
-    @Override
+    public String getName(){return this.name;}
+
+    public void setVisited(Boolean v){this.visited = v;}
+
+    public Boolean getVisited(){return this.visited;}
+
+    public void setPredecessor(Vertex v){this.predecessor = v;}
+
+    public Vertex getPredecessor(){return this.predecessor;}
+
+    public void setDistance(Integer dist){this.distance = dist;}
+
+    public Integer getDistance(){return this.distance;}
+
+    //Add an Edge to the outEdge ArrayList
+    public void addOutEdge(Edge e){
+        outEdge.add(e);
+    }
+
+    //Maybe not needed
+    public void setOutEdge(ArrayList<Edge> edge){this.outEdge = edge;}
+
+    public ArrayList<Edge> getOutEdge(){return this.outEdge;}
+
+    //Compare the distance of this vertex and a given vertex
     public int compareTo(Vertex v){
-        return 0;
+        if (this.distance < v.distance){
+            return -1;
+        } else if (this.distance > v.distance){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 }

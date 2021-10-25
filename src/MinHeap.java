@@ -28,7 +28,7 @@ public class MinHeap<T extends Comparable> {
         return pos*2 + 2;
     }
 
-    //Ikke sikker på at vi skal bruge!!!!!
+
     private void swapPos(int p1, int p2){
         T dummy = minheap.get(p1);
         minheap.set(p1, minheap.get(p2));
@@ -52,7 +52,7 @@ public class MinHeap<T extends Comparable> {
         }
     }
 
-    //Printer index[0] i Arraylist ?!?!?!?!
+    //Returner index[0] i Arraylist
     public T viewMin(){
         return minheap.get(0);
     }
