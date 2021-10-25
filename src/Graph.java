@@ -33,9 +33,9 @@ public class Graph {
 
     public void printGraph(){
         for (int src = 0; src<vertices.size(); src++) {
-            System.out.println("Edges from vertex: "+src);
+            System.out.println("Edges from vertex: "+ vertices.get(src).getName());
             for (int dest = 0; dest < vertices.get(src).getOutEdge().size(); dest++) {
-                System.out.println(" The distance to "+vertices.get(src).getOutEdge().get(dest)+" is "+
+                System.out.println(" The distance to "+vertices.get(src).getOutEdge().get(dest).getDestVertex().getName()+" is "+
                         vertices.get(src).getOutEdge().get(dest).getKm()+" km.");
             }
             System.out.println(" ");
@@ -75,29 +75,14 @@ public class Graph {
     }
 
     public void printPrims(){
-        System.out.println("Minimum spaning tree distance");
+        System.out.println("Minimum spanning tree distance");
         for (int i = 0; i < vertices.size(); i++) {
             if (vertices.get(i).getPredecessor() != null) {
-                System.out.println(i + " parent " + vertices.get(i).getPredecessor().getName() + " to " +
-                        vertices.get(i).getName() + " weight " + vertices.get(i).getDistance());
+                System.out.println(vertices.get(i).getPredecessor().getName() + " to " +
+                        vertices.get(i).getName() + " weight " + vertices.get(i).getDistance() + "km");
             }
-            System.out.println("Total cost: "+getMST());
+
         }
-    }
-}
-
-// Pair Class
-class Pair implements Comparable<Pair>{
-    Integer distance;
-    Integer index;
-
-    public Pair(Integer distance, Integer index){
-        this.distance = distance;
-        this.index = index;
-    }
-
-    @Override
-    public int compareTo(Pair o){
-        return this.distance.compareTo(o.distance);
+        System.out.println("Total cost: "+getMST()*100000);
     }
 }

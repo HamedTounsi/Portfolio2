@@ -5,7 +5,6 @@ public class Vertex implements Comparable<Vertex>{
     private String name;
     private ArrayList<Edge> outEdge;
     Vertex predecessor = null;
-    Boolean visited = false;
     Integer distance = Integer.MAX_VALUE;
 
     //Constructor
@@ -17,10 +16,6 @@ public class Vertex implements Comparable<Vertex>{
     public void setName(String v){this.name = v;}
 
     public String getName(){return this.name;}
-
-    public void setVisited(Boolean v){this.visited = v;}
-
-    public Boolean getVisited(){return this.visited;}
 
     public void setPredecessor(Vertex v){this.predecessor = v;}
 
