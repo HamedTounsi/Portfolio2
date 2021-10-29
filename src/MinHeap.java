@@ -5,8 +5,8 @@ public class MinHeap<T extends Comparable> {
     private int size;
 
     HashMap<T, Integer> posTable = new HashMap<>();
-
     ArrayList<T> minheap;
+
     public MinHeap(){
         this.minheap = new ArrayList<T>();
         this.size = 0;

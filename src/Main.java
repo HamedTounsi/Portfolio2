@@ -83,7 +83,7 @@ public class Main {
         elNet.addEdge(Ringsted, Vordingborg, 58);
         elNet.addEdge(Slagelse, Sorø, 14);
 
-        elNet.printGraph();
+        //elNet.printGraph();
         elNet.MSTPrims();
         elNet.printPrims();
     }

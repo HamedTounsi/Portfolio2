@@ -49,28 +49,29 @@ public class Graph {
         MinHeap<Vertex> Q = new MinHeap<>();
 
 
-        if (vertices.size() > 0){
-            vertices.get(0).setDistance(0);
-        }
+        if (vertices.size() > 0) {
+            vertices.get(0).setDistance(0); //O(1)
 
-        for (int i = 0; i < vertices.size(); i++) {
-            Q.insert(vertices.get(i));
-        }
 
-        this.MST = 0;
-
-        while (!Q.isEmpty()){
-            Vertex src = Q.extractMin();
-            for (int e0 = 0; e0 < src.getOutEdge().size(); e0++) {
-                Vertex destinationVertex = src.getOutEdge().get(e0).getDestVertex();
-                if (src.getOutEdge().get(e0).getKm() < destinationVertex.getDistance()){
-                    destinationVertex.setDistance(src.getOutEdge().get(e0).getKm());
-                    destinationVertex.setPredecessor(src);
-                    int position = Q.getPosition(destinationVertex);
-                    Q.decreasekey(position);
-                }
+            for (int i = 0; i < vertices.size(); i++) { //O(v)
+                Q.insert(vertices.get(i));
             }
-            this.MST += src.getDistance();
+
+            this.MST = 0; //O(1)
+
+            while (!Q.isEmpty()) {
+                Vertex src = Q.extractMin();
+                for (int e0 = 0; e0 < src.getOutEdge().size(); e0++) { //O(e)
+                    Vertex destinationVertex = src.getOutEdge().get(e0).getDestVertex();
+                    if (src.getOutEdge().get(e0).getKm() < destinationVertex.getDistance()) { //O(1)
+                        destinationVertex.setDistance(src.getOutEdge().get(e0).getKm());
+                        destinationVertex.setPredecessor(src);
+                        int position = Q.getPosition(destinationVertex);
+                        Q.decreasekey(position); //O(log v)
+                    }
+                }
+                this.MST += src.getDistance();
+            }
         }
     }
 
