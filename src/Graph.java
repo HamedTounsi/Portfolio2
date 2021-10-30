@@ -59,9 +59,9 @@ public class Graph {
 
             this.MST = 0; //O(1)
 
-            while (!Q.isEmpty()) {
-                Vertex src = Q.extractMin();
-                for (int e0 = 0; e0 < src.getOutEdge().size(); e0++) { //O(e)
+            while (!Q.isEmpty()) { //O(V)
+                Vertex src = Q.extractMin(); //O(log v)
+                for (int e0 = 0; e0 < src.getOutEdge().size(); e0++) { //O(+2e)
                     Vertex destinationVertex = src.getOutEdge().get(e0).getDestVertex();
                     if (src.getOutEdge().get(e0).getKm() < destinationVertex.getDistance()) { //O(1)
                         destinationVertex.setDistance(src.getOutEdge().get(e0).getKm());
@@ -82,7 +82,6 @@ public class Graph {
                 System.out.println(vertices.get(i).getPredecessor().getName() + " to " +
                         vertices.get(i).getName() + " weight " + vertices.get(i).getDistance() + "km");
             }
-
         }
         System.out.println("Total cost: "+getMST()*100000);
     }
