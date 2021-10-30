@@ -1,3 +1,10 @@
+/* Made by
+* Hamed Tounsi - 68841
+* Rasmus Laue Petersen - 68907
+* Mansour Hamidi - 68903
+* Kush Max Kei - 68924
+* */
+
 public class Main {
 
     public static void main(String[] args) {
