@@ -11,6 +11,7 @@ public class Vertex implements Comparable<Vertex>{
 
     private String name;
     private ArrayList<Edge> outEdge;
+    boolean isVisited = false;
     Vertex predecessor = null;
     Integer distance = Integer.MAX_VALUE;
 

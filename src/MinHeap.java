@@ -81,8 +81,10 @@ public class MinHeap<T extends Comparable> {
     }
 
     private boolean movedown(int pos){
-        boolean leftsmaller = leftChild(pos)<size && minheap.get(leftChild(pos)).compareTo(minheap.get(pos))<0;
-        boolean rightsmaller = rightChild(pos)<size && minheap.get(rightChild(pos)).compareTo(minheap.get(pos))<0;
+        boolean leftsmaller = leftChild(pos)<size
+        && minheap.get(leftChild(pos)).compareTo(minheap.get(pos))<0;
+        boolean rightsmaller = rightChild(pos)<size
+        && minheap.get(rightChild(pos)).compareTo(minheap.get(pos))<0;
         return (leftsmaller || rightsmaller);
     }
 
@@ -93,7 +95,7 @@ public class MinHeap<T extends Comparable> {
             int rpos = rightChild(currentpos);
             int lpos = leftChild(currentpos);
             if (rpos<size && minheap.get(rpos).compareTo(minheap.get(lpos))<0){
-                swapPos(lpos,currentpos);
+                swapPos(rpos,currentpos);
                 currentpos = rpos;
             } else {
                 swapPos(lpos, currentpos);

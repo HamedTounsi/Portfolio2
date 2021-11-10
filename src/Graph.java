@@ -70,7 +70,7 @@ public class Graph {
                 Vertex src = Q.extractMin(); //O(log v)
                 for (int e0 = 0; e0 < src.getOutEdge().size(); e0++) { //O(+2e)
                     Vertex destinationVertex = src.getOutEdge().get(e0).getDestVertex();
-                    if (src.getOutEdge().get(e0).getKm() < destinationVertex.getDistance()) { //O(1)
+                    if (!destinationVertex.isVisited && src.getOutEdge().get(e0).getKm() < destinationVertex.getDistance()) { //O(1)
                         destinationVertex.setDistance(src.getOutEdge().get(e0).getKm());
                         destinationVertex.setPredecessor(src);
                         int position = Q.getPosition(destinationVertex);
@@ -78,6 +78,7 @@ public class Graph {
                     }
                 }
                 this.MST += src.getDistance();
+                src.isVisited = true;
             }
         }
     }
